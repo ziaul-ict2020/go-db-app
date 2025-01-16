@@ -4,7 +4,7 @@ FROM golang:1.20
 WORKDIR /app
 
 # Copy code into the container
-COPY code/ ./code/
+COPY code/ .
 
 # Set the working directory to the code folder
 WORKDIR /app/code
