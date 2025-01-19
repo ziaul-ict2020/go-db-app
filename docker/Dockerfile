@@ -4,8 +4,8 @@ FROM golang:1.20
 WORKDIR /app
 
 # Copy code into the container
-#COPY code/ .
-COPY . .
+COPY code/ .
+#COPY . .
 # Download Go modules and dependencies
 RUN go mod init local/postgres_app && \
     go mod tidy
