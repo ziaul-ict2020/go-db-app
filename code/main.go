@@ -45,7 +45,7 @@ func main() {
 	fmt.Println("Successfully connected to PostgreSQL database!")
 
 	// HTTP handler to test the database
-	http.HandleFunc("/testdb", func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("/checkdb", func(w http.ResponseWriter, r *http.Request) {
 		if err := db.Ping(); err != nil {
 			w.WriteHeader(http.StatusInternalServerError)
 			json.NewEncoder(w).Encode(map[string]string{"status": "error", "message": "Database connection failed"})
