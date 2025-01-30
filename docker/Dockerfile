@@ -1,4 +1,10 @@
 FROM golang:1.20
+ARG TIMEZONE="Asia/Dhaka"
+# Timezone
+ENV TZ="${TIMEZONE}"
+RUN apt-get update && apt-get install -y tzdata && \
+    ln -sf /usr/share/zoneinfo/$TZ /etc/localtime && \
+    echo $TZ > /etc/timezone
 
 # Set the Current Working Directory inside the container
 WORKDIR /app
